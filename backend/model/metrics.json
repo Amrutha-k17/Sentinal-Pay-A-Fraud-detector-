@@ -1,0 +1,34 @@
+{
+  "roc_auc": 1.0,
+  "recall": 1.0,
+  "precision": 1.0,
+  "f1": 1.0,
+  "threshold": 0.35,
+  "feature_importance": {
+    "amount": 0.004247926819099778,
+    "hour": 0.07325428732662793,
+    "day_of_week": 2.804111009736702e-05,
+    "is_weekend": 9.473654200227304e-06,
+    "merchant_category": 0.0010890968941396567,
+    "country_code": 0.026481216296678566,
+    "card_type": 0.011615426588032569,
+    "velocity_1h": 0.2103779677978308,
+    "velocity_24h": 0.1799149667275566,
+    "avg_amount_30d": 0.002646777821084305,
+    "amount_deviation": 0.22495194804474494,
+    "is_foreign": 0.03284319403784125,
+    "is_high_risk_merchant": 0.014227993639120147,
+    "time_since_last_txn": 0.14397572175248996,
+    "failed_attempts_24h": 0.07433596149045593
+  },
+  "confusion_matrix": [
+    [
+      11700,
+      0
+    ],
+    [
+      0,
+      300
+    ]
+  ]
+}
