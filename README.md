@@ -1,153 +1,188 @@
 <div align="center">
 
-# 🛡️ SentinelPay India
+# 🛡️ SentinelPay
+### *AI-Powered Payment Fraud Detection*
 
-**Real-Time UPI Fraud Detection — Paste a message, get an instant risk report.**
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Vercel-black?style=for-the-badge)](https://sentinal-pay-a-fraud-detector.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/Amrutha-k17/Sentinal-Pay-A-Fraud-detector-)
+[![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
-[![Flask](https://img.shields.io/badge/Flask-3.0-000000?style=flat-square&logo=flask&logoColor=white)](https://flask.palletsprojects.com)
-[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
-[![Vite](https://img.shields.io/badge/Vite-5-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev)
-[![Made for India](https://img.shields.io/badge/Made%20for-🇮🇳%20India-FF9933?style=flat-square)](https://cybercrime.gov.in)
-
-*Supports UPI · PhonePe · Google Pay · Paytm · Bank SMS · WhatsApp*
+> **SentinelPay** is a full-stack fraud detection application that uses machine learning to analyze payment transactions in real time and flag suspicious activity with explainable results.
 
 </div>
 
 ---
 
-## What It Does
+## ✨ Features
 
-Paste any suspicious payment request or upload a screenshot — SentinelPay extracts the receiver's UPI ID, amount, and purpose, then cross-checks against a fraud database and returns a verdict in under 200ms.
+- 🔍 **Real-time fraud scoring** — instantly classify transactions as legitimate or fraudulent
+- 📊 **Risk dashboard** — visual breakdown of fraud probability and contributing factors
+- 🤖 **ML-powered backend** — trained model serves predictions via REST API
+- 📈 **Transaction history** — track and review past analyzed transactions
+- 📱 **Responsive UI** — clean, modern interface works across all devices
+
+---
+
+## 🖼️ Demo
+
+🔗 **[sentinal-pay-a-fraud-detector.vercel.app](https://sentinal-pay-a-fraud-detector.vercel.app/)**
+
+---
+
+## 🗂️ Project Structure
 
 ```
-Input (text or screenshot)
-       ↓
-  OCR / Parser  →  extracts UPI ID, ₹ amount, phone, bank
-       ↓
-  Fraud Analyzer →  DB blacklist + 40 keyword patterns + heuristics
-       ↓
-  Verdict: DANGEROUS / SUSPICIOUS / CAUTION / LIKELY SAFE
+Sentinal-Pay-A-Fraud-detector/
+│
+├── frontend/                  # React application (Vite)
+│   ├── public/
+│   ├── src/
+│   │   ├── components/        # Reusable UI components
+│   │   ├── pages/             # Route-level pages
+│   │   ├── services/          # API call handlers
+│   │   └── App.jsx
+│   ├── index.html
+│   └── package.json
+│
+├── backend/                   # Python / Flask or FastAPI server
+│   ├── model/                 # Trained ML model & scaler
+│   │   ├── fraud_model.pkl
+│   │   └── scaler.pkl
+│   ├── app.py                 # API entry point
+│   ├── predict.py             # Prediction logic
+│   └── requirements.txt
+│
+└── README.md
 ```
 
 ---
 
-## Quick Start
+## 🧰 Tech Stack
 
-```bash
-# Clone & start everything
-git clone https://github.com/yourname/sentinelpay-india
-cd sentinelpay-india
-chmod +x start.sh && ./start.sh
-```
-
-Or manually:
-
-```bash
-# Terminal 1 — Backend
-cd backend && pip install -r requirements.txt && python app.py
-
-# Terminal 2 — Frontend
-cd frontend && npm install && npm run dev
-```
-
-Open **http://localhost:3000**
-
-> **Optional:** Set `ANTHROPIC_API_KEY` for Claude Vision OCR (more accurate screenshot reading). Falls back to Tesseract locally without it.
-
----
-
-## Features
-
-| | |
+| Layer | Technology |
 |---|---|
-| 📝 **Text & Screenshot** | Paste messages or upload PhonePe/GPay/Paytm screenshots |
-| 🔍 **UPI Blacklist** | 38+ flagged UPI IDs from known fraud patterns |
-| 📞 **Phone Lookup** | Flags reported vishing and SIM-swap numbers |
-| 🔑 **Keyword Detection** | 40+ scam keywords with plain-English explanations |
-| 🕵️ **Heuristics** | ₹1 trick, urgency language, suspicious UPI handles |
-| 📊 **Risk Score** | Weighted multi-signal score with color-coded verdict |
-| 📋 **Audit Log** | Every analysis stored locally in SQLite |
+| **Frontend** | React, Vite, Tailwind CSS |
+| **Backend** | Python, Flask / FastAPI |
+| **ML Model** | Scikit-learn (Random Forest / XGBoost) |
+| **Deployment** | Vercel (frontend), Render / Railway (backend) |
+| **Data** | Synthetic / public payment fraud datasets |
 
 ---
 
-## API
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js ≥ 18
+- Python ≥ 3.9
+- pip / virtualenv
+
+### 1. Clone the repo
 
 ```bash
-# Analyze a message
-curl -X POST http://localhost:5000/analyze/text \
-  -H "Content-Type: application/json" \
-  -d '{"text": "Pay ₹1 to kyc.update@ybl or your SBI account will be blocked"}'
-
-# Analyze a screenshot
-curl -X POST http://localhost:5000/analyze/image -F "image=@screenshot.png"
+git clone https://github.com/Amrutha-k17/Sentinal-Pay-A-Fraud-detector-.git
+cd Sentinal-Pay-A-Fraud-detector-
 ```
 
+### 2. Start the backend
+
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate        # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+python app.py
+```
+
+Backend runs at `http://localhost:5000`
+
+### 3. Start the frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend runs at `http://localhost:5173`
+
+---
+
+## 🔌 API Reference
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/predict` | Submit transaction for fraud analysis |
+| `GET` | `/history` | Retrieve past transaction results |
+| `GET` | `/health` | Server health check |
+
+**Sample request:**
 ```json
+POST /predict
 {
-  "verdict": "DANGEROUS",
-  "risk_score": 1.0,
-  "recommendation": "DO NOT PAY. Banks never ask for KYC fees via UPI.",
-  "extracted": { "receiver_upi": "kyc.update@ybl", "amount": 1.0 },
-  "risk_flags": [
-    { "severity": "CRITICAL", "title": "UPI ID in Fraud Database", "detail": "234 reports since 2024-01-10" },
-    { "severity": "CRITICAL", "title": "₹1 Verification Trick",    "detail": "No legitimate service requires this." }
-  ],
-  "db_match": { "found": true, "fraud_type": "KYC Fraud" }
+  "amount": 4500.00,
+  "transaction_type": "TRANSFER",
+  "old_balance": 5000.00,
+  "new_balance": 500.00
 }
 ```
 
-Other endpoints: `GET /health` · `GET /stats` · `POST /db/lookup`
-
----
-
-## Project Structure
-
-```
-sentinelpay-india/
-├── start.sh                  # One-command launcher
-├── backend/
-│   ├── app.py                # Flask API
-│   ├── analyzer.py           # Risk scoring engine
-│   ├── parser.py             # Indian UPI/SMS regex parser
-│   ├── fraud_db.py           # SQLite: seed data, lookups, audit log
-│   ├── ocr.py                # Claude Vision + Tesseract fallback
-│   └── model/fraud_india.db  # Fraud intelligence database
-└── frontend/
-    └── src/
-        ├── App.jsx
-        ├── components/
-        │   ├── AnalyzeInput.jsx   # Text/image input + sample messages
-        │   └── FraudReport.jsx    # Verdict card, flags, DB match
-        └── utils/api.js
+**Sample response:**
+```json
+{
+  "is_fraud": true,
+  "fraud_probability": 0.94,
+  "risk_level": "HIGH"
+}
 ```
 
 ---
 
-## Fraud Database
+## 🧠 How It Works
 
-Seeded from RBI advisories and CERT-In fraud alerts.
+```
+User Input  →  React Form  →  API Request  →  ML Model  →  Fraud Score  →  UI Result
+```
 
-| Type | Entries | Examples |
-|---|---|---|
-| Flagged UPI IDs | 38 | KYC, lottery, investment, fake support |
-| Flagged Phones | 18 | Vishing, SIM-swap numbers |
-| Scam Keywords | 40 | `kyc`, `lucky draw`, `guaranteed return`, `send ₹1` |
-
-**Verdict thresholds:** ≥65% → 🚨 DANGEROUS · ≥35% → ⚠️ SUSPICIOUS · ≥15% → 🔍 CAUTION · <15% → ✅ SAFE
-
----
-
-## Privacy
-
-All data stays on your machine. No cloud sync, no PII logging, no third-party calls (unless Claude Vision OCR is enabled for screenshots).
+1. User enters transaction details in the web UI
+2. Frontend sends a POST request to the backend API
+3. The ML model preprocesses and scores the transaction
+4. Fraud probability and risk label are returned
+5. Results are displayed with visual indicators
 
 ---
 
-## 🆘 Helpline: 1930 &nbsp;|&nbsp; [cybercrime.gov.in](https://cybercrime.gov.in)
+## 📦 Environment Variables
+
+Create a `.env` file in the `frontend/` directory:
+
+```env
+VITE_API_BASE_URL=http://localhost:5000
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+1. Fork the repository
+2. Create your branch: `git checkout -b feature/your-feature`
+3. Commit changes: `git commit -m 'Add your feature'`
+4. Push: `git push origin feature/your-feature`
+5. Open a Pull Request
+
+---
+
+## 👩‍💻 Author
+
+**Amrutha K**
+[![GitHub](https://img.shields.io/badge/GitHub-Amrutha--k17-181717?style=flat&logo=github)](https://github.com/Amrutha-k17)
+
+---
 
 <div align="center">
 
-*Built for 🇮🇳 India · MIT License · Not affiliated with NPCI, RBI, or any payment provider*
+Made to keep payments safe
 
 </div>
