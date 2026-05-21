@@ -1,4 +1,4 @@
-const BASE = '/api'
+const BASE = import.meta.env.VITE_API_URL || 'https://sentinal-pay-a-fraud-detector.onrender.com'
 
 async function apiFetch(path, opts = {}) {
   let res
